@@ -1,53 +1,65 @@
-<div id="sideways">
-	<div class="scene" id="hero">
 
-	<h1>Cost of living rising in your neighborhood?</h1>
-		  <%= high_chart("my_id4", @chart) do |c| %>
-        <%= raw "options.tooltip.formatter = function() {return this.point.name +'</b>: '+ this.y +' %';}"  %>
-        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-      <% end %>
-	</div>
-
-	<div class="scene" id="problem">
-
-	<h1>It doesn't add up.</h1>
-	<p>When they say that inflation is only 1.5%. <br> <br>
-		In reality inflation is different for everyone, and for most it is  between <strong>3-5%</strong>.</p> 
-
-	<h1>Your one of Millions</h1>
-		<p>Since 2007 US households have increased their savings <strong>300%.</strong><br><br>
-			Over the same time, interest rates fell to <strong>record lows.</strong>
-		</p>
-
-
-	</div>
-
-	<div class="scene" id="solution">
-
-	<h1>Pay Anywhere, Save Everywhere</h1>
-	<p>We provide a <strong>universal payment network</strong>,<br><br> and we aggregate living costs across the US <strong>your savings</strong> travel with you.</p>
-
-	</div>
-
-	<div class="scene" id="join">
-
-		<h2>Join</h2>
-	<%= form_for @email_subscription do |f| %>
-	  <% if @email_subscription.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
-
-	      <ul>
-	      <% @email_subscription.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
+		<div id="myCarousel home" class="carousel slide">
+	  <ol class="carousel-indicators">
+	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#myCarousel" data-slide-to="1"></li>
+	    <li data-target="#myCarousel" data-slide-to="2"></li>
+	  </ol>
+	  <!-- Carousel items -->
+	  <div class="carousel-inner">
+	    <div class="active item"><%= image_tag "http://3.bp.blogspot.com/-GtWVCLQDYe4/T5rvKTBeM_I/AAAAAAAAAYo/Yjx29ZAvJIM/s1600/Conan.jpg" %>
+		    <div class="carousel-caption">
+	        <h4>First Thumbnail label</h4>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	      </div>
 	    </div>
-	  <% end %>
-
-	  <%= f.label :email %></br>
-		<%= f.text_field :email %><br>
-		<%= f.submit "Signup" %>
-	<% end %>
+	    <div class="item"><%= image_tag "http://3.bp.blogspot.com/-GtWVCLQDYe4/T5rvKTBeM_I/AAAAAAAAAYo/Yjx29ZAvJIM/s1600/Conan.jpg" %>
+		    <div class="carousel-caption">
+	        <h4>second Thumbnail label</h4>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	      </div>	 
+      </div>   
+	    <div class="item"><%= image_tag "http://3.bp.blogspot.com/-GtWVCLQDYe4/T5rvKTBeM_I/AAAAAAAAAYo/Yjx29ZAvJIM/s1600/Conan.jpg" %>
+		    <div class="carousel-caption">
+	        <h4>second Thumbnail label</h4>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	      </div>	
+      </div>    
+	  </div>
+	  <!-- Carousel nav -->
+	  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div>
-</div>
+
+	<div id="articles">
+		<div class="span11">
+			<%= image_tag "http://3.bp.blogspot.com/-GtWVCLQDYe4/T5rvKTBeM_I/AAAAAAAAAYo/Yjx29ZAvJIM/s1600/Conan.jpg" %>
+			<h2>title</h2>	
+			<div class="lead">Subtitle</div>
+			<p>body text body textbody textbody textbody 
+				textbody textbody textbody textbody textbody 
+				textbody textbody textbody textbody textbody text
+			</p>
+		</div>
+	</div>
+
+	<div id="contact_us">
+		<h2>Contact us</h2>
+		<%= form_for @email_subscription do |f| %>
+		  <% if @email_subscription.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
+
+		      <ul>
+		      <% @email_subscription.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+		  <%= f.label :email %></br>
+			<%= f.text_field :email %><br>
+			<%= f.submit "Signup" %>
+		<% end %>
+	</div>

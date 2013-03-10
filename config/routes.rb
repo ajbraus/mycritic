@@ -1,4 +1,4 @@
-Clc::Application.routes.draw do
+Wni::Application.routes.draw do
   root :to => 'welcome#index'
   get "welcome/index"
   resources :email_subscriptions, only: [:new, :create, :index]
