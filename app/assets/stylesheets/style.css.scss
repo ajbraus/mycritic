@@ -18,6 +18,10 @@ h1 {
 	line-height: 1;
 }
 
+.row-fluid {
+	min-height: 360px;
+}
+
 .row-fluid .span12 {
 	margin:0;
 }
@@ -72,6 +76,15 @@ bottom: 80px;
 
 #work {
 	.span4 {
+		height: 150px;
 		margin:5px;
 	}
+}
+
+#about {
+	background:url('lined_paper.png');
+}
+
+#contact_us {
+	background:url('graphy.png');
 }
