@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Wni::Application.load_tasks
+Mycritic::Application.load_tasks

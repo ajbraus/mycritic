@@ -1,104 +1,18 @@
-	<div id="articles" class="row-fluid clearfix">
-			<%= image_tag 'toomanylines.png' %>
-			<% if false %>
-			<h1>Words, Numbers, Images</h1>	
-			<% end %>
-			<div class="lead">Subtitle</div>
-			<p>body text body textbody textbody textbody 
-				textbody textbody textbody textbody textbody 
-				textbody textbody textbody textbody textbody text
-			</p>
-	</div>
-
-	<div id="services" class="row-fluid clearfix service">
-			<h1>Services</h1>
-			<div class="span3" style="margin: 0;">
-				<div class="ball red"><i class="icon-thumbs-up"></i></div>
-				<div class="lead">Contextual Web</div>
-			</div>
-			<div class="span3">
-				<div class="ball green"><i class="icon-question-sign"></i></div>
-				<div class="lead">Questions and Answers</div>
-			</div>
-			<div class="span3">
-				<div class="ball pink"><i class="icon-flag"></i></div>
-				<div class="lead">Y-gen talent Aquisition</div>
-			</div>
-			<div class="span3">
-				<div class="ball blue"><i class="icon-trophy"></i></div>
-				<div class="lead">Y-gen talent Management</div>
-			</div>
-	</div>
-
-	<div id="about" class="row-fluid clearfix">
-			<h1>About</h1>
-			<div class="span5">
-				<div class="lead">Nikolai Skievaski</div>
-				<p>body text body textbody textbody textbody 
-					textbody textbody textbody textbody textbody 
-					textbody textbody textbody textbody textbody text
-				</p>
-			</div>
-			<div class="span5 offset1">
-				<div class="lead">Adam Braus</div>
-				<p>body text body textbody textbody textbody 
-					textbody textbody textbody textbody textbody 
-					textbody textbody textbody textbody textbody text
-				</p>
-			</div>
+<div class="span11 offset3" id="mainBox">
+	<div class="hero-unit text-center">
+		<h1>my critic</h1>
+		<p class="lead">
+			Blah how awesome we are
+		</p>
+		<div class="btn btn-success btn-large set_genre" data-genre='3'>
+			Games
+		</div>
+		<div class="btn btn-danger btn-large set_genre" data-genre='1'>
+			Movies
+		</div>
+		<div class="btn btn-primary btn-large set_genre" data-genre='2'>
+			Music
+		</div>
+		<p><%= link_to 'how it works', faq_path %></p>
 	</div>
 </div>
-<div class="container-fluid">
-	<div id="work" class="row-fluid clearfix">
-			<h1>Work</h1>
-			<div class="span4" style="margin-left:10px">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-			<div class="span4">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-			<div class="span4">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-
-			<div class="span4" style="margin-left:10px">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-			<div class="span4">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-			<div class="span4">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-
-			<div class="span4" style="margin-left:10px">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-			<div class="span4">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-			<div class="span4">
-				<%= image_tag 'http://fbiz.firstbusiness.com/qa-theme/FBB/images/VaultLoginHeader_background.jpg' %>
-			</div>
-	</div>
-
-	<div id="contact_us" class="row-fluid">
-		<h1>Contact us</h1>
-		<%= form_for @email_subscription do |f| %>
-		  <% if @email_subscription.errors.any? %>
-		    <div id="error_explanation">
-		      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
-
-		      <ul>
-		      <% @email_subscription.errors.full_messages.each do |msg| %>
-		        <li><%= msg %></li>
-		      <% end %>
-		      </ul>
-		    </div>
-		  <% end %>
-
-		  <%= f.label :email %></br>
-			<%= f.text_field :email %><br>
-			<%= f.submit "Signup" %>
-		<% end %>
-	</div>

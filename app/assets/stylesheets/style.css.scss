@@ -1,90 +1,46 @@
 body {
-	padding:0;
-	font-family: Helvetica, lucida, sans-serif
+	background:url('tiny_grid.png');
 }
-
-.header {
-	height:74px;
-	background-color: white;
-	width:100%;
-}
-
-.container-fluid {
-	padding:0;
+.hero-unit {
+	margin:50px 0;
 }
 
 h1 {
-	font-size:80px;
-	line-height: 1;
+	text-align: center;
 }
 
-.row-fluid {
-	min-height: 360px;
+ul, li {
+	list-style: none;
 }
 
-.row-fluid .span12 {
+.critics {
+	li {
+		margin: 10px;
+	}
+}
+
+.critic {
+	&:hover {
+		background-color:lightgrey;
+	}
+}
+
+.critics-column {
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	background-color:grey;
 	margin:0;
 }
 
-.item {
-	img {
-		margin: 0 auto;
-	}
-}
-
-.wni_row {
-	height:300px;
-}
-
-.services {
-	background:url('lined_paper.pngz');
-}
-
-#work {
+footer {
+	clear: both;
 	text-align: center;
-	.span3 {
-		margin:0;
-	}
 }
 
-.ball {
-margin: 0 auto;
-border-radius: 100px;
-color: white;
-font-size: 49px;
-padding: 50px;
-height: 50px;
-text-align: center;
-}
-.red {
-	background-color: red;
-}
-.green {
-	background-color:rgb(0, 173, 255);
-}
-.pink {
-	background-color: rgb(204, 0, 255);
-}
-.blue {
-	background-color: rgb(0, 20, 255);
-}
-
-#articles {
-	position: relative;
-bottom: 80px;
-}
-
-#work {
-	.span4 {
-		height: 150px;
-		margin:5px;
-	}
-}
-
-#about {
-	background:url('lined_paper.png');
-}
-
-#contact_us {
-	background:url('graphy.png');
+.pick-critics {
+	position: fixed;
+	bottom: 40px;
+	right: 20px;
 }

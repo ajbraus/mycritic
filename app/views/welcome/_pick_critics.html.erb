@@ -1,0 +1,38 @@
+<h1><%= @genre.name %></h1>
+<ul class="critics">
+<% critics.each do |c| %>
+	<li class="pull-left span3 critic" data-critic-id="<%= c.id %>">
+		<div class="media">
+  		<a class="pull-left" href="#">
+    		<img src="http://podcre.com/Outros/P.o.s.t.e.r.s/Deposito%20Imagens/NY%20Times%20obit.gif" class="media-object" width="100">
+  		</a>
+  		<div class="media-body">
+    		<h4 class="media-heading"><%= c.name %></h4>
+    		<p>blah</p>
+  		</div>
+		</div>
+	</li>
+<% end %>
+</ul>
+<div class="btn btn-large disabled pick-critics" id="pickCritics">Pick 'em</div>
+
+<%= coffee_script_tag do %>
+$ ->	
+	critic_ids = []
+	$('.critic').click ->
+		$(@).fadeOut ->
+			critic_img = $(@).first().find('img')
+			num = $('#criticsColumn').children().length / 2 + 1
+			$('#criticsColumn').append("<div style='text-align:center;background-color:white;'>" + num + "</div>").append(critic_img);
+			critic_img.css("width","100%");
+			critic_id = $(@).attr 'data-critic-id'
+			critic_ids.push(critic_id)
+			if critic_ids.length > 0
+				pick_critics = $('#pickCritics')
+				$('#pickCritics').removeClass('disabled').addClass('btn-primary')
+	pick_critics.click ->
+		if $(@).hasClass("btn-primary")
+			$.get '/get_works',
+				critic_ids: critic_ids
+
+<% end %>

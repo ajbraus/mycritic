@@ -16,6 +16,9 @@ gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'coffeebeans'
 
+gem 'pry', :group => :development
+gem 'pry-debugger', :group => :development
+
 gem 'lazy_high_charts'
 
 # group :development, :test do

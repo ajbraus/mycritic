@@ -1,7 +1,9 @@
-Wni::Application.routes.draw do
+Mycritic::Application.routes.draw do
   root :to => 'welcome#index'
   get "welcome/index"
-  resources :email_subscriptions, only: [:new, :create, :index]
+  match '/pick_genre', to: 'welcome#pick_genre', as: :pick_genre
+  match '/index_works', to: 'welcome#index_works', as: :index_works
+  match '/faq', to: 'welcome#faq', as: :faq
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
