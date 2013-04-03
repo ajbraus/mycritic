@@ -21,6 +21,7 @@ gem 'pry-debugger', :group => :development
 
 gem 'lazy_high_charts'
 
+#gem 'spreadsheet'
 # group :development, :test do
 # 	gem 'rspec-rails'
 # 	gem 'turnip'

@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(:version => 20130327040608) do
   create_table "critics", :force => true do |t|
     t.string   "name"
     t.string   "url"
-    t.integer  "genre_id"
+    t.string   "img_url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "critics", ["genre_id"], :name => "index_critics_on_genre_id"
+  add_index "critics", ["name"], :name => "index_critics_on_name"
 
   create_table "critics_genres", :id => false, :force => true do |t|
     t.integer "critic_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20130327040608) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "genres", ["name"], :name => "index_genres_on_name"
 
   create_table "reviews", :force => true do |t|
     t.integer  "work_id"
@@ -59,5 +61,6 @@ ActiveRecord::Schema.define(:version => 20130327040608) do
   end
 
   add_index "works", ["genre_id"], :name => "index_works_on_genre_id"
+  add_index "works", ["title"], :name => "index_works_on_title"
 
 end

@@ -8,5 +8,6 @@ class CreateWorks < ActiveRecord::Migration
       t.timestamps
     end
     add_index :works, :genre_id
+    add_index :works, :title
   end
 end

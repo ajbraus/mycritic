@@ -1,7 +1,9 @@
 class Work < ActiveRecord::Base
   belongs_to :genre
   has_many :reviews
-  attr_accessible :title
+  attr_accessible :title, :released_on
+  
+  validates :title, presence: true
 
   def return_works(critic_ids, genre_id)
   	@genre_id = genre_id
