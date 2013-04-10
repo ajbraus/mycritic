@@ -4,8 +4,8 @@ class CriticsGenres < ActiveRecord::Migration
       t.references :critic
     	t.references :genre
     end
-    add_index :critics_genres, [:critic_id, :genre_id]
-    add_index :critics_genres, [:genre_id, :critic_id]
+    add_index :critics_genres, [:critic_id, :genre_id], unique: true
+    add_index :critics_genres, [:genre_id, :critic_id], unique: true
   end
 end
 

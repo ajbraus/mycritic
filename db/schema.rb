@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20130327040608) do
     t.integer "genre_id"
   end
 
-  add_index "critics_genres", ["critic_id", "genre_id"], :name => "index_critics_genres_on_critic_id_and_genre_id"
-  add_index "critics_genres", ["genre_id", "critic_id"], :name => "index_critics_genres_on_genre_id_and_critic_id"
+  add_index "critics_genres", ["critic_id", "genre_id"], :name => "index_critics_genres_on_critic_id_and_genre_id", :unique => true
+  add_index "critics_genres", ["genre_id", "critic_id"], :name => "index_critics_genres_on_genre_id_and_critic_id", :unique => true
 
   create_table "genres", :force => true do |t|
     t.string   "name"

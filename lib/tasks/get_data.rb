@@ -11,14 +11,18 @@ Genre.create!(name: "Games", id:3)
 CSV.foreach("sample.csv") do |row|
   work_title = row[0]
   released_on = Date.strptime(row[1], "%b %d- %Y")
-  @games.works.create!(released_on: released_on, title: work_title)
+  unless Work.find_by_title(work_title).present?
+    @games.works.create!(released_on: released_on, title: work_title)
+  end
 end
 
 #create critics with critic/genre pairs in has_and_belongs_to_many table
 #work,published_on,critic,score
 CSV.foreach("sample.csv") do |row|
   critic = row[2]
-  @games.critics.create!(name: critic)
+  unless Critic.find_by_name(critic).present?
+    @games.critics.create!(name: critic)
+  end
 end
 
 #create review with critic and work

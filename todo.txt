@@ -1,3 +1,1 @@
-finish making mock data in migrations 
-	- create_works needs mock reviews to be built
-		- critics just write one review per work, and not all critics write reviews for each work
+return reviews based on chosen critics

@@ -5,33 +5,46 @@ class Work < ActiveRecord::Base
   
   validates :title, presence: true
 
-  def return_works(critic_ids, genre_id)
-  	@genre_id = genre_id
+  def self.return_works(critic_ids, genre_id)
+  	genre = Genre.find(genre_id)
   	@critic_ids = critic_ids
-  	@works_array = Work.joins(:reviews => :critics).where('critics.id IN ? AND works.genre_id = ? AND work.released_on > ?', @critic_ids, @genre_id, Time.now - 6.weeks)
+
+		@works_array = []
+		@critic_ids.each do |c|
+  		critic = Critic.find(c)   
+   		works = critic.reviews.each do |r| 
+   			if r.work.genre == genre
+   				@works_array.push r.work
+   			end
+   		end
+   	end
+  	#@works_array = Work.joins(:review => :critic).where('critics.id IN ? AND works.genre_id = ? AND works.released_on > ?', @critic_ids, @genre_id, Time.now - 6.weeks)
 		@agg_scores_array = []
 		@works_array.each do |w|
-			@reviews = w.reviews.joins(:critics).where('critics.ids IN ?', @critic_ids) #reviews by chosen critics of work w
-			@scores = @reviews.map { |r| r.score } #their scores
-			@critic_weights_array = [] #get array of critic weights
-			@critic_ids.each_with_index do |critic_id, index|
-				@n = w.reviews.joins(:critics).where('critics.id IN ?', @critic_ids).count #SECRET SAUCE
-				@critic_weight = 2*1-(1/2)^@n/2^index #SECRET SAUCE
-				@critic_weights_array.push(@critic_weight)
-			end
-
-			#dot product of the array of the weights and array of for the scores
-			sum, i, size = 0, 0, @scores.size
-      while i < size
-        sum += @scores[i] * @critic_weights[i]
-        i += 1
-      end
-	    @agg_score = sum
-	    @agg_scores_array.push(@agg_score)
+			@reviews = w.reviews.select { |r| @critic_ids.include?(r.critic.id.to_s) } #reviews by chosen critics of work w
+			if @reviews.size > 0
+				@reviews_critics = @reviews.map {|r| r.critic }
+				@scores = @reviews.map { |r| r.score } #their scores
+				@critic_weights_array = [] #get array of critic weights
+				@reviews_critics.each_with_index do |critic_id, index|
+					@n = @reviews.count #SECRET SAUCE
+					@critic_weight = (1/2)**index #SECRET SAUCE
+					@critic_weights_array.push(@critic_weight)
+				end
+				@sum_of_weights = @critic_weights_array.inject{|sum,x| sum + x }
+				@critic_weights_array = @critic_weights_array.map {|c| c/@sum_of_weights }
+				#dot product of the array of the weights and array of for the scores
+				sum, i, size = 0, 0, @scores.size
+	      while i < size
+	        sum += @scores[i] * @critic_weights_array[i]
+	        i += 1
+	      end
+		    @agg_score = sum
+		    @agg_scores_array.push(@agg_score)
+		  end
 	  end
 
 		@work_score_hash = Hash[@works_array.zip(@agg_scores_array)]	# => { #<work> => "aggregate_score", #<work> => "aggregate_score", . . . }	
-
 		return @works_score_hash
 
 		# abandoned sort_by method
