@@ -17,7 +17,7 @@ end
 Genre.create!(name: "Movies", id:1)
 Genre.create!(name: "Music", id:2)
 Genre.create!(name: "Games", id:3)
-@games = Genre.find(3)
+@games = Genre.find_by_name("Games")
 
 #create works in genre
 #work,published_on,critic,score
