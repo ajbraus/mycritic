@@ -1,6 +1,5 @@
 <ul>
 <% works.each do |key, value| %>
-	<li><%= key.title %></li>
-	<li><%= value %></li>
+	<li><span class="inline"><h2><%= value %></h2></span><%= key.title %></li>
 <% end %>
 </ul>
