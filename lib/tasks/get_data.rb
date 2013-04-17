@@ -1,5 +1,18 @@
 require 'csv'
 
+Genre.all.each do |g|
+  g.destroy
+end
+Critic.all.each do |c|
+  c.destroy
+end
+Work.all.each do |w|
+  w.destroy
+end
+Review.all.each do |r|
+  r.destroy
+end
+
 #DONE create genres
 Genre.create!(name: "Movies", id:1)
 Genre.create!(name: "Music", id:2)
