@@ -45,7 +45,8 @@ class Work < ActiveRecord::Base
 	  end
 
 		@work_score_hash = Hash[@works_array.zip(@agg_scores_array)]	# => { #<work> => "aggregate_score", #<work> => "aggregate_score", . . . }	
-		return @works_score_hash
+    @work_score_hash = @work_score_hash.sort {|a,b| a[1] <=> b[1]}.reverse
+		return @work_score_hash
 
 		# abandoned sort_by method
 		#	@works.sort_by do |w|

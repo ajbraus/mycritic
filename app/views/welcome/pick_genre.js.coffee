@@ -17,6 +17,8 @@ $('.critic').click ->
 
 	pick_critics.click ->
 		if $(@).hasClass("btn-primary")
+			$('#ajaxSpinner').show();
+			$('#mainBox').hide();
 			$.get '/index_works',
 				critic_ids: critic_ids,
 				genre_id: genre_id

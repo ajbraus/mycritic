@@ -1,1 +1,2 @@
-return reviews based on chosen critics
+Update views
+get new data with only recent stuff
