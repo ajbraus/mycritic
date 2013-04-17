@@ -1,19 +1,23 @@
 <div id="ajaxSpinner" class="ajax" style="display:none;"><%= image_tag '5.gif' %></div>
-<div class="span11 offset3" id="mainBox">
-	<div class="hero-unit text-center">
-		<h1>my critic</h1>
-		<p class="lead">
-			Blah how awesome we are
-		</p>
-		<div class="btn btn-success btn-large set_genre" data-genre='3'>
-			Games
+<div class="container">
+<div class="span2" id="criticsColumn"> </div>
+
+	<div class="row" id="mainBox">
+			<div class="hero-unit text-center">
+				<h1>my critic</h1>
+				<p class="lead">
+					Where YOU pick the critics
+				</p>
+				<div class="btn btn-success btn-large set_genre" data-genre='3'>
+					Games
+				</div>
+				<div class="btn btn-danger btn-large set_genre" data-genre='1'>
+					Movies
+				</div>
+				<div class="btn btn-primary btn-large set_genre" data-genre='2'>
+					Music
+				</div>
+				<p><%= link_to 'how it works', faq_path %></p>
+			</div>
 		</div>
-		<div class="btn btn-danger btn-large set_genre" data-genre='1'>
-			Movies
-		</div>
-		<div class="btn btn-primary btn-large set_genre" data-genre='2'>
-			Music
-		</div>
-		<p><%= link_to 'how it works', faq_path %></p>
-	</div>
 </div>

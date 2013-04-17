@@ -1,17 +1,13 @@
 <h1 id="genre" data-genre-id="<%=@genre.id%>"><%= @genre.name %></h1>
-<ul class="critics">
+<ul class="thumbnails span9">
 <% critics.each do |c| %>
-	<li class="pull-left span3 critic" data-critic-id="<%= c.id %>">
-		<div class="media">
-  		<a class="pull-left" href="#">
-    		<img src="http://podcre.com/Outros/P.o.s.t.e.r.s/Deposito%20Imagens/NY%20Times%20obit.gif" class="media-object" width="100">
-  		</a>
-  		<div class="media-body">
-    		<h4 class="media-heading"><%= c.name %></h4>
-    		<p>blah</p>
-  		</div>
-		</div>
-	</li>
+  <li class="span3 critic">
+    <div class="thumbnail">
+      <img src="http://podcre.com/Outros/P.o.s.t.e.r.s/Deposito%20Imagens/NY%20Times%20obit.gif">
+      <h3><%= c.name %></h3>
+      <p>Thumbnail caption...</p>
+    </div>
+  </li>
 <% end %>
 </ul>
 <div class="btn btn-large disabled pick-critics" id="pickCritics">Pick 'em</div>
