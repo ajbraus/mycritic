@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
   end
 
   def pick_genre
-  	@genre = Genre.find(params[:genre_id])
+  	@genre = Genre.find_by_name(params[:name])
   	@critics = @genre.critics
   end
 
