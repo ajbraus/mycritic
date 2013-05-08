@@ -1,2 +1,11 @@
+three columns:
+my score
+unweighted average
+metascore
+
+
 Update views
+"demo of metacritic paper"
+link to scott's paper
+
 get new data with only recent stuff

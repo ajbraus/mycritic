@@ -1,13 +1,16 @@
+<div class="span3" id="criticsColumn"> 
+<h1 class="text-left">YOUR Critics</h1>
+</div>   
+<div class="span9" id="criticsPool">
 <h1 id="genre" data-genre-id="<%=@genre.id%>"><%= @genre.name %></h1>
-<ul class="thumbnails span9">
+<ul class="thumbnails">
 <% critics.each do |c| %>
-  <li class="span3 critic" data-critic-id="<%= c.id %>">
+  <li class="critic" data-critic-id="<%= c.id %>">
     <div class="thumbnail">
-      <img src="http://podcre.com/Outros/P.o.s.t.e.r.s/Deposito%20Imagens/NY%20Times%20obit.gif">
       <h3><%= c.name %></h3>
-      <p>Thumbnail caption...</p>
     </div>
   </li>
 <% end %>
 </ul>
 <div class="btn btn-large disabled pick-critics" id="pickCritics">Pick 'em</div>
+</div>
