@@ -39,7 +39,7 @@ class Work < ActiveRecord::Base
 	        sum += @scores[i] * @critic_weights_array[i]
 	        i += 1
 	      end
-		    @agg_score = sum
+		    @agg_score = sum.abs
 		    @agg_scores_array.push(@agg_score)
 		  end
 	  end
